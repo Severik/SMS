@@ -1,7 +1,9 @@
 import jxl.read.biff.BiffException;
 
 import java.io.*;
-import java.util.Date;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Created by Денис on 04/16/2016.
@@ -10,23 +12,21 @@ import java.util.Date;
 public class Sms {
 
     public static void main(String[] args) throws IOException, BiffException {
-        File file = new File("D:\\123.xls");
-        Date now = new Date();
-        Date modified;
-            if (file.exists()) {
-                modified = new Date(file.lastModified());
-                if (modified.compareTo(now) == 1) {
-                    InputStream inputStream = new FileInputStream(file);
-                    Info info = new Info();
-                    info.loadFromXls(inputStream);
-                    System.out.println(info.getFirstName() + " " + info.getLastName());
-                    System.out.println(info.getPhoneNumber());
-                    System.out.println(info.getProposal());
-                    for (int i = 0; i < info.getService().size(); i++) {
-                        System.out.println(info.getService().get(i) + " amount: " + info.getAmount().get(i) + " price: " + info.getPrice().get(i));
-                    }
-                    System.out.println("Total: " + info.getTotal());
-                    inputStream.close();
+        Path path = Paths.get("D:\\1.xls");
+        while (true) {
+            if (Files.exists(path)) {
+                InputStream inputStream = new FileInputStream(String.valueOf(path));
+                Info info = new Info();
+                info.loadFromXls(inputStream);
+                System.out.println(info.getFirstName() + " " + info.getLastName());
+                System.out.println(info.getPhoneNumber());
+                System.out.println(info.getProposal());
+                for (int i = 0; i < info.getService().size(); i++) {
+                    System.out.println(info.getService().get(i) + " amount: " + info.getAmount().get(i) + " price: " + info.getPrice().get(i));
+                }
+                System.out.println("Total: " + info.getTotal());
+                inputStream.close();
+                Files.delete(path);
             }
         }
     }
