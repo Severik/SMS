@@ -2,7 +2,6 @@ import jxl.read.biff.BiffException;
 
 import java.io.IOException;
 
-
 /**
  * Created by Денис on 04/16/2016.
  * Формирует СМС и отправляет его на сервис TurboSMS.ua
@@ -10,6 +9,9 @@ import java.io.IOException;
 public class Sms {
 
     public static void main(String[] args) throws IOException, BiffException {
+        Service service = new Service();
+        ServiceSoap port = service.getServiceSoap();
+        System.out.println(port.auth("Severik", "Derparol12!@"));
        /* Path path = Paths.get("D:\\1.xls");
         while (true) {
             if (Files.exists(path)) {
