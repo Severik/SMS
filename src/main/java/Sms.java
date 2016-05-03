@@ -12,6 +12,7 @@ public class Sms {
         Service service = new Service();
         ServiceSoap port = service.getServiceSoap();
         System.out.println(port.auth("Severik", "Derparol12!@"));
+
        /* Path path = Paths.get("D:\\1.xls");
         while (true) {
             if (Files.exists(path)) {
