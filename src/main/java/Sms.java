@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  * Created by Денис on 04/16/2016.
  * Формирует СМС и отправляет его на сервис TurboSMS.ua
  */
-public class Sms {
+public class Sms{
 
     public static void main(String[] args) throws IOException, BiffException {
         Path path = Paths.get("D:\\1.xls");
