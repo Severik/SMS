@@ -27,7 +27,7 @@ public class Sms {
         send.setSender("SoftTechno");
         send.setTime("0");
         Path path = Paths.get("D:\\1.xls");
-        while (true) {
+        /*while (true) {
             if (Files.exists(path)) {
                 InputStream inputStream = new FileInputStream(String.valueOf(path));
                 Info info = new Info();
@@ -35,6 +35,6 @@ public class Sms {
                 inputStream.close();
                 Files.delete(path);
             }
-        }
+        }*/
     }
 }
