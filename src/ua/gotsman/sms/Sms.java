@@ -23,7 +23,6 @@ public class Sms {
     public static void main(String[] args) throws IOException, BiffException {
         Service service = new Service();
         ServiceSoap port = service.getServiceSoap();
-        Send send = new Send();
         Path path = Paths.get("D:\\1.xls");
         while (true) {
             if (Files.exists(path)) {
