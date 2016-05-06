@@ -18,6 +18,7 @@ public class Sms {
                 if (modified.compareTo(now) == 1) {
                     InputStream inputStream = new FileInputStream(file);
                     Info info = new Info();
+                    fgh
                     info.loadFromXls(inputStream);
                     System.out.println(info.getFirstName() + " " + info.getLastName());
                     System.out.println(info.getPhoneNumber());
