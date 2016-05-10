@@ -1,6 +1,9 @@
 package ua.gotsman.sms;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import jxl.read.biff.BiffException;
 import ua.smsc.sys.soap.Service;
@@ -42,6 +45,19 @@ public class Sms extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("Центр управления полетами");
+        Pane root = new Pane();
+        Button start = new Button();
+        start.setText("Старт");
+        start.setLayoutX(100);
+        start.setLayoutY(200);
+        Button stop = new Button();
+        stop.setLayoutX(300);
+        stop.setLayoutY(200);
+        stop.setText("Стоп");
+        Scene scene = new Scene(root);
+        root.getChildren().addAll(start, stop);
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
