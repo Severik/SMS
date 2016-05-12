@@ -21,14 +21,13 @@ public class Sms {
     private final static String SENDER = "SoftTechno";
     private final static String TIME = "0";
 
-    public static void main(String[] args) throws IOException, BiffException {
+    public void sendSms(Info info) throws IOException, BiffException {
         Service service = new Service();
         ServiceSoap port = service.getServiceSoap();
         Path path = Paths.get("D:\\1.xls");
         while (true) {
             if (Files.exists(path)) {
                 InputStream inputStream = new FileInputStream(String.valueOf(path));
-                Info info = new Info();
                 info.loadFromXls(inputStream);
                 inputStream.close();
                 Files.delete(path);
