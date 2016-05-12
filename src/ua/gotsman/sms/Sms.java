@@ -1,6 +1,8 @@
 package ua.gotsman.sms;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Pane;
@@ -22,10 +24,10 @@ import java.nio.file.Paths;
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
  */
 public class Sms extends Application {
-    private final static String login = "Severik";
-    private final static String password = "Derparol12!@";
-    private final static String sender = "SoftTechno";
-    private final static String time = "0";
+    private final static String LOGIN = "Severik";
+    private final static String PASSWORD = "Derparol12!@";
+    private final static String SENDER = "SoftTechno";
+    private final static String TIME = "0";
 
     public static void main(String[] args) throws IOException, BiffException {
         launch(args);
@@ -45,19 +47,9 @@ public class Sms extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Центр управления полетами");
-        Pane root = new Pane();
-        Button start = new Button();
-        start.setText("Старт");
-        start.setLayoutX(100);
-        start.setLayoutY(200);
-        Button stop = new Button();
-        stop.setLayoutX(300);
-        stop.setLayoutY(200);
-        stop.setText("Стоп");
-        Scene scene = new Scene(root);
-        root.getChildren().addAll(start, stop);
-        primaryStage.setScene(scene);
+        primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
     }
 }
