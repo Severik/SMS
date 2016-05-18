@@ -12,7 +12,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by Денис on 04/16/2016.
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
  */
 public class Sms {
@@ -21,7 +20,7 @@ public class Sms {
     private final static String SENDER = "SoftTechno";
     private final static String TIME = "0";
 
-    public void sendSms(Info info) throws IOException, BiffException {
+    public static void sendSms(Info info) throws IOException, BiffException {
         Service service = new Service();
         ServiceSoap port = service.getServiceSoap();
         Path path = Paths.get("D:\\1.xls");

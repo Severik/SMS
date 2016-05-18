@@ -10,7 +10,6 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
- * Created by Денис on 04/16/2016.
  * Информация о клиенте и услуге, исходя из сформированного коммерческого предложения 1С.
  */
 class Info {
