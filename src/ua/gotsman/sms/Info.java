@@ -75,7 +75,7 @@ class Info {
         amount.add(Double.valueOf(cell.getContents().replaceAll(",", ".")));
     }
 
-    ArrayList<Double> getPrice() {
+    private ArrayList<Double> getPrice() {
         return price;
     }
 

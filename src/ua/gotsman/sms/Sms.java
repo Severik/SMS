@@ -12,14 +12,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Created by Денис on 04/16/2016.
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
  */
-public class Sms implements Runnable {
+class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
     private final static String SENDER = "SoftTechno";
     private final static String TIME = "0";
+
     static int stopTime = 0;
     @Override
     public void run() {
@@ -34,7 +34,7 @@ public class Sms implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Test");
+            System.out.println("TEST");
             if (Files.exists(path)) {
                 try {
                     InputStream inputStream = new FileInputStream(String.valueOf(path));
