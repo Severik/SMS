@@ -12,7 +12,7 @@ public class View extends Application {
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Центр управления полетами");
-        primaryStage.setScene(new Scene(root, 600, 555));
+        primaryStage.setScene(new Scene(root, 600, 600));
         primaryStage.show();
     }
 

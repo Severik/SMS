@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="555.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
-    <Tab closable="false" text="Главная" />
+<?import javafx.scene.layout.*?>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
+    <Tab closable="false" text="Главная">
+        <SplitPane dividerPositions="0.29797979797979796" prefHeight="160.0" prefWidth="200.0">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="567.0" prefWidth="209.0">
+                <Button layoutX="57.0" layoutY="56.0" mnemonicParsing="false" text="Button" />
+                <Button layoutX="57.0" layoutY="108.0" mnemonicParsing="false" text="Button" />
+                <Button layoutX="57.0" layoutY="165.0" mnemonicParsing="false" text="Button" />
+                <Button layoutX="57.0" layoutY="220.0" mnemonicParsing="false" text="Button" />
+            </AnchorPane>
+            <AnchorPane>
+                <TextArea editable="false" prefHeight="567.0" prefWidth="417.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
+        </SplitPane>
+    </Tab>
     <Tab closable="false" text="Отправить СМС" />
-    <Tab closable="false" text="Помощь" />
-    <Tab closable="false" text="О программе" />
+    <Tab closable="false" text="Помощь">
+        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+    </Tab>
+    <Tab closable="false" text="О программе">
+        <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" />
+    </Tab>
 </TabPane>
