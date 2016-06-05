@@ -15,8 +15,8 @@ import java.nio.file.Paths;
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
  */
 class Sms implements Runnable {
-    private final static String LOGIN = "Severik";
-    private final static String PASSWORD = "Derparol12!@";
+    private final static String LOGIN = "";
+    private final static String PASSWORD = "";
     private final static String SENDER = "SoftTechno";
     private final static String TIME = "0";
 
