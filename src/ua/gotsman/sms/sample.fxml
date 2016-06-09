@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0"
-      prefWidth="600.0" xmlns="http://javafx.com/javafx/null" fx:controller="ua.gotsman.sms.Controller" xmlns:fx="http://javafx.com/fxml/1">
-    <TabPane layoutY="120.0" tabClosingPolicy="UNAVAILABLE">
-        <Tab text="Untitled Tab 1">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="600.0">
-                <TextArea layoutX="185.0" layoutY="87.0" prefHeight="447.0" prefWidth="600.0"
-                          AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                          AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
-            </AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
+    <TabPane layoutY="94.0" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Главная">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+               <DatePicker layoutX="194.0" layoutY="51.0" />
+            </children></AnchorPane>
         </Tab>
-        <Tab text="Untitled Tab 2">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+        <Tab text="Отправить СМС">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+        <Tab text="Помощь">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        </Tab>
+        <Tab text="О программе">
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </Tab>
     </TabPane>
-    <ButtonBar layoutX="14.0" layoutY="13.0" prefHeight="97.0" prefWidth="577.0">
-      <buttons>
-          <Button mnemonicParsing="false" text="Button"/>
-          <Button mnemonicParsing="false" text="Button"/>
-          <Button mnemonicParsing="false" text="Button"/>
-      </buttons>
-    </ButtonBar>
+   <Button layoutX="33.0" layoutY="25.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="СТАРТ" />
+   <Button layoutX="130.0" layoutY="25.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="СТОП" />
+   <Button layoutX="293.0" layoutY="55.0" mnemonicParsing="false" text="ИСТОРИЯ" />
+   <Button layoutX="425.0" layoutY="25.0" mnemonicParsing="false" text="БАЛАНС" />
+   <Hyperlink layoutX="334.0" layoutY="26.0" text="Мой сайт" />
 </Pane>
