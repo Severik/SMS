@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
-    <TabPane layoutY="94.0" prefHeight="500.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+    <TabPane layoutY="120.0" tabClosingPolicy="UNAVAILABLE">
         <Tab text="Главная">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-            <children>
-               <DatePicker layoutX="194.0" layoutY="51.0" />
-            </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="600.0">
+                <TextArea layoutX="185.0" layoutY="87.0" prefHeight="447.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            </AnchorPane>
         </Tab>
-        <Tab text="Отправить СМС">
-            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-        </Tab>
-        <Tab text="Помощь">
+        <Tab text="Отправка СМС">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </Tab>
         <Tab text="О программе">
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
         </Tab>
     </TabPane>
-   <Button layoutX="33.0" layoutY="25.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="СТАРТ" />
-   <Button layoutX="130.0" layoutY="25.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="60.0" text="СТОП" />
-   <Button layoutX="293.0" layoutY="55.0" mnemonicParsing="false" text="ИСТОРИЯ" />
-   <Button layoutX="425.0" layoutY="25.0" mnemonicParsing="false" text="БАЛАНС" />
-   <Hyperlink layoutX="334.0" layoutY="26.0" text="Мой сайт" />
+   <Button fx:id="start" layoutX="36.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnStart" text="START" />
+   <Button fx:id="stop" layoutX="114.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnStop" text="STOP" />
+   <Button fx:id="balance" layoutX="191.0" layoutY="57.0" mnemonicParsing="false" onAction="#btnBalance" text="BALANCE" />
 </Pane>
