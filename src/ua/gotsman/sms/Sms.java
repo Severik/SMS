@@ -17,8 +17,8 @@ import java.nio.file.Paths;
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
  */
 class Sms implements Runnable {
-    private final static String LOGIN = "";
-    private final static String PASSWORD = "";
+    private final static String LOGIN = "Severik";
+    private final static String PASSWORD = "Derparol12!@";
     private final static String SENDER = "SoftTechno";
     private final static String TIME = "0";
     private Path path = Paths.get("D:\\1.xls");
@@ -31,12 +31,6 @@ class Sms implements Runnable {
     public void run() {
         while (true) {
             if (stopTime == 1) break;
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println("TEST");
             if (Files.exists(path)) {
                 try {
                     InputStream inputStream = new FileInputStream(String.valueOf(path));
@@ -48,7 +42,6 @@ class Sms implements Runnable {
                 }
             }
         }
-        System.out.println("stopped");
         stopTime = 0;
     }
 
