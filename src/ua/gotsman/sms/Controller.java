@@ -14,6 +14,7 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField smsCount;
     public TextArea mainTextArea;
+    public TextArea infoTextArea;
     private Sms sms = new Sms();
 
     @FXML
@@ -33,7 +34,7 @@ public class Controller {
     }
 
     @FXML
-    public void smsCount () {
-
+    public void smsCount() {
+        smsCount.setText("СМС отправлено: " + sms.smsCount);
     }
 }

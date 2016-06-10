@@ -26,6 +26,7 @@ class Sms implements Runnable {
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
     int stopTime = 0;
+    int smsCount = 0;
 
     @Override
     public void run() {
