@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Logger;
 
 /**
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
@@ -16,6 +17,7 @@ import java.nio.file.Paths;
 class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
+    private static Logger log = Logger.getLogger(Sms.class.getName());
     private Path path = Paths.get("D:\\1.xls");
     private Info info = new Info();
     private Service service = new Service();
@@ -32,7 +34,7 @@ class Sms implements Runnable {
                     sendSms();
                     Files.delete(path);
                 } catch (IOException | BiffException e) {
-                    System.out.println(e);
+                    log.info(e.toString());
                 }
             }
         }
@@ -47,11 +49,11 @@ class Sms implements Runnable {
         return response.getBalanceresult().getBalance();
     }
 
-    public void sendSms () {
+    private void sendSms() {
         Send send = new Send();
         send.setLogin(LOGIN);
         send.setPsw(PASSWORD);
-        send.setPhones(info.getPhoneNumber());
+        send.setPhones("+38" + info.getPhoneNumber());
         send.setMes("This is test message, please don't response");
         send.setId("");
         send.setSender("SoftTechno");

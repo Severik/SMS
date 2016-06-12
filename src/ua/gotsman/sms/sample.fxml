@@ -7,30 +7,29 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: url(https://github.com/Severik/SMS/blob/master/src/ua/gotsman/sms/res/background.jpg?raw=true);" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
     <TabPane layoutY="92.0" prefHeight="408.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
         <Tab style="-fx-font-size: 13;" text="Главная">
-         <content>
-            <TextArea fx:id="mainTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
-         </content>
+            <TextArea fx:id="mainTextArea" editable="false" prefHeight="200.0" prefWidth="200.0"/>
         </Tab>
         <Tab style="-fx-font-size: 13" text="Отправка СМС">
-         <content>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
-               <children>
-                  <TextField layoutX="64.0" layoutY="48.0" prefHeight="29.0" prefWidth="176.0" promptText="Введите номер телефона" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </TextField>
-                  <TextArea layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0" promptText="Напишите сообщение здесь, максимум 70 символов" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </TextArea>
-               </children></AnchorPane>
-         </content></Tab>
+                <TextField layoutX="64.0" layoutY="48.0" prefHeight="29.0" prefWidth="176.0"
+                           promptText="Введите номер телефона"
+                           style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+                    <font>
+                        <Font size="13.0"/>
+                    </font>
+                </TextField>
+                <TextArea layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0"
+                          promptText="Напишите сообщение здесь, максимум 70 символов"
+                          style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+                    <font>
+                        <Font size="13.0"/>
+                    </font>
+                </TextArea>
+            </AnchorPane>
+        </Tab>
         <Tab style="-fx-font-size: 13" text="О программе">
-         <content>
-            <TextArea fx:id="infoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
-         </content></Tab>
+            <TextArea fx:id="infoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" text="&#10;"/>
+        </Tab>
     </TabPane>
    <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" styleClass="button" stylesheets="@buttonStyle.css" text="Старт">
       <font>
