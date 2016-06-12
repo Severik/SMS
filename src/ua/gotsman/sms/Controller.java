@@ -2,12 +2,18 @@ package ua.gotsman.sms;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 
 public class Controller {
 
     public Button start;
     public Button stop;
-    public Button balance;
+    public TextField balanceField;
+    public Hyperlink siteLink;
+    public TextField smsCount;
+    public TextArea mainTextArea;
     private Sms sms = new Sms();
 
     @FXML
@@ -22,7 +28,12 @@ public class Controller {
     }
 
     @FXML
-    public void btnBalance() {
-        System.out.println(sms.getUserBalance());
+    public void showBalance() {
+        balanceField.setText("Баланс: " + sms.getUserBalance() + " грн.");
+    }
+
+    @FXML
+    public void smsCount () {
+
     }
 }
