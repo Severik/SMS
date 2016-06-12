@@ -23,16 +23,20 @@ class Sms implements Runnable {
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
     int stopTime = 0;
+    int smsCount = 0;
 
     @Override
     public void run() {
         while (true) {
             if (stopTime == 1) break;
             if (Files.exists(path)) {
-                try (InputStream inputStream = new FileInputStream(String.valueOf(path))){
+                try {
+                    InputStream inputStream = new FileInputStream(String.valueOf(path));
                     info.loadFromXls(inputStream);
+                    inputStream.close();
                     sendSms();
                     Files.delete(path);
+                    smsCount += 1;
                 } catch (IOException | BiffException e) {
                     log.info(e.toString());
                 }

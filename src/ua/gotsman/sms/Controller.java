@@ -36,6 +36,6 @@ public class Controller {
 
     @FXML
     public void smsCount () {
-
+        smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount));
     }
 }
