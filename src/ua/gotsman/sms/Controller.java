@@ -27,7 +27,6 @@ public class Controller {
     @FXML
     public void btnStop() {
         sms.stopTime = 1;
-        Thread.currentThread().interrupt();
     }
 
     @FXML

@@ -27,10 +27,9 @@ class Sms implements Runnable {
         while (true) {
             if (stopTime == 1) break;
             if (Files.exists(path)) {
-                try {
-                    InputStream inputStream = new FileInputStream(String.valueOf(path));
+                try (InputStream inputStream = new FileInputStream(String.valueOf(path))){
                     info.loadFromXls(inputStream);
-                    inputStream.close();
+                    sendSms();
                     Files.delete(path);
                 } catch (IOException | BiffException e) {
                     System.out.println(e);
@@ -57,6 +56,6 @@ class Sms implements Runnable {
         send.setId("");
         send.setSender("SoftTechno");
         send.setTime("0");
-
+        port.sendSms(send);
     }
 }
