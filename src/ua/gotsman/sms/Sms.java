@@ -1,10 +1,7 @@
 package ua.gotsman.sms;
 
 import jxl.read.biff.BiffException;
-import ua.smsc.sys.soap.Balance;
-import ua.smsc.sys.soap.BalanceResponse;
-import ua.smsc.sys.soap.Service;
-import ua.smsc.sys.soap.ServiceSoap;
+import ua.smsc.sys.soap.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -19,8 +16,6 @@ import java.nio.file.Paths;
 class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
-    private final static String SENDER = "SoftTechno";
-    private final static String TIME = "0";
     private Path path = Paths.get("D:\\1.xls");
     private Info info = new Info();
     private Service service = new Service();
@@ -51,5 +46,17 @@ class Sms implements Runnable {
         balance.setPsw(PASSWORD);
         BalanceResponse response = port.getBalance(balance);
         return response.getBalanceresult().getBalance();
+    }
+
+    public void sendSms () {
+        Send send = new Send();
+        send.setLogin(LOGIN);
+        send.setPsw(PASSWORD);
+        send.setPhones(info.getPhoneNumber());
+        send.setMes("This is test message, please don't response");
+        send.setId("");
+        send.setSender("SoftTechno");
+        send.setTime("0");
+
     }
 }

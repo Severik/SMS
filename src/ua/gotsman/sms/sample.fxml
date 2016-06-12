@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-
+<?import javafx.scene.text.*?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: url(https://github.com/Severik/SMS/blob/master/src/ua/gotsman/sms/res/background.jpg?raw=true);" xmlns="http://javafx.com/javafx/null" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ua.gotsman.sms.Controller">
     <TabPane layoutY="92.0" prefHeight="408.0" prefWidth="500.0" tabClosingPolicy="UNAVAILABLE">
         <Tab style="-fx-font-size: 13;" text="Главная">
@@ -38,16 +32,16 @@
             <TextArea fx:id="infoTextArea" editable="false" prefHeight="200.0" prefWidth="200.0" />
          </content></Tab>
     </TabPane>
-   <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: linear-gradient(#61a2b1, #2A5058); -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-size: 14;" text="Старт">
+   <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" stylesheets="@buttonStyle.css" text="Старт">
       <font>
          <Font size="15.0" />
       </font></Button>
-   <Button fx:id="stop" layoutX="114.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStop" prefHeight="60.0" prefWidth="60.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: linear-gradient(#61a2b1, #2A5058); -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-size: 14;" text="Стоп">
+   <Button fx:id="stop" layoutX="114.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnStop" prefHeight="60.0" prefWidth="60.0" stylesheets="@buttonStyle.css" text="Стоп">
       <font>
          <Font size="15.0" />
       </font></Button>
    <TextField fx:id="balanceField" editable="false" layoutX="216.0" layoutY="14.0" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
-   <Button layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" style="-fx-text-fill: white; -fx-font-weight: bold; -fx-background-color: linear-gradient(#61a2b1, #2A5058); -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 ); -fx-font-size: 14;" text="Лог">
+   <Button layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
       <font>
          <Font size="15.0" />
       </font>

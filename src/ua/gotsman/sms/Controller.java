@@ -14,6 +14,7 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField smsCount;
     public TextArea mainTextArea;
+    public TextArea infoTextArea;
     private Sms sms = new Sms();
 
     @FXML
@@ -25,6 +26,7 @@ public class Controller {
     @FXML
     public void btnStop() {
         sms.stopTime = 1;
+        Thread.currentThread().interrupt();
     }
 
     @FXML
