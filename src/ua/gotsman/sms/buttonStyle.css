@@ -10,6 +10,6 @@
     -fx-background-color: linear-gradient(#2A5058, #61a2b1);
 }
 
-.button:selected:focused{
-    -fx-background-color: lime;
+.button:focused {
+    -fx-background-color: #2A5058;
 }
