@@ -15,6 +15,7 @@ public class Controller {
     public TextField smsCount;
     public TextArea mainTextArea;
     public TextArea infoTextArea;
+    public Button log;
     private Sms sms = new Sms();
 
     @FXML
@@ -34,7 +35,7 @@ public class Controller {
     }
 
     @FXML
-    public void smsCount() {
-        smsCount.setText("СМС отправлено: " + sms.smsCount);
+    public void smsCount () {
+        smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount));
     }
 }
