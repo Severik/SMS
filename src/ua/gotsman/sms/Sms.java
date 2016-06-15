@@ -6,6 +6,7 @@ import ua.smsc.sys.soap.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,7 +20,7 @@ class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
-    private Path path = Paths.get("D:\\1.xls");
+    private Path path = Paths.get("D:\\");
     private Info info = new Info();
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
@@ -31,13 +32,15 @@ class Sms implements Runnable {
         while (true) {
             if (stopTime == 1) break;
             if (Files.exists(path)) {
-                try {
-                    InputStream inputStream = new FileInputStream(String.valueOf(path));
-                    info.loadFromXls(inputStream);
-                    inputStream.close();
-                    sendSms();
-                    Files.delete(path);
-                    smsCount += 1;
+                try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")){
+                    for (Path entry : entries) {
+                        InputStream inputStream = new FileInputStream(String.valueOf(entry));
+                        info.loadFromXls(inputStream);
+                        inputStream.close();
+                        sendSms();
+                        Files.delete(path);
+                        smsCount += 1;
+                    }
                 } catch (IOException | BiffException e) {
                     log.info(e.toString());
                 }
