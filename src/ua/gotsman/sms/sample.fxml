@@ -23,7 +23,7 @@
                 </TextArea>
             <Button fx:id="accept" layoutX="127.0" layoutY="323.0" mnemonicParsing="false" onAction="#accept" prefHeight="31.0" prefWidth="90.0" stylesheets="@buttonStyle.css" text="Отправить" />
             <Button fx:id="cancel" layoutX="284.0" layoutY="323.0" mnemonicParsing="false" onAction="#cancel" prefHeight="31.0" prefWidth="90.0" stylesheets="@buttonStyle.css" text="Отмена" />
-            <CheckBox fx:id="verifyPhone" mnemonicParsing="false" />
+            <CheckBox fx:id="verifyPhone" layoutX="254.0" layoutY="54.0" mnemonicParsing="false" />
             </AnchorPane>
         </Tab>
         <Tab closable="false" style="-fx-font-size: 13;" text="О программе" />
