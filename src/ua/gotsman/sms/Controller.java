@@ -10,12 +10,13 @@ public class Controller {
 
     public Button start;
     public Button stop;
-    public TextField balanceField;
-    public Hyperlink siteLink;
-    public TextField smsCount;
-    public TextArea mainTextArea;
-    public TextArea infoTextArea;
     public Button log;
+    public Button accept;
+    public Button cancel;
+    public TextArea mainTextArea;
+    public TextField balanceField;
+    public TextField smsCount;
+    public Hyperlink siteLink;
     private Sms sms = new Sms();
 
     @FXML
@@ -37,5 +38,15 @@ public class Controller {
     @FXML
     public void smsCount () {
         smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount));
+    }
+
+    @FXML
+    public void accept () {
+
+    }
+
+    @FXML
+    public void cancel () {
+
     }
 }

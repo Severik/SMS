@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: ua.gotsman.sms.View
 Class-Path: sms.jar
+Main-Class: ua.gotsman.sms.View
+
