@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import ua.smsc.sys.soap.Send;
 
 public class Controller {
 
@@ -19,8 +20,6 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField enterPhone;
     public TextArea enterSms;
-    private String phoneNumber;
-    private String message;
     private Sms sms = new Sms();
 
 
@@ -47,8 +46,18 @@ public class Controller {
 
     @FXML
     public void accept () {
-        phoneNumber = enterPhone.getText();
-        message = enterSms.getText();
+        String phoneNumber = enterPhone.getText();
+        String message = enterSms.getText();
+        Send send = new Send();
+        send.setLogin(Sms.getLogin());
+        send.setPsw(Sms.getPassword());
+        send.setPhones("+38" + phoneNumber);
+        send.setMes(message);
+        send.setSender("SoftTechno");
+        send.setTime("0");
+        sms.getPort().sendSms(send);
+        enterPhone.clear();
+        enterSms.clear();
     }
 
     @FXML

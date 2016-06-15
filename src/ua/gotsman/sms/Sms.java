@@ -68,9 +68,20 @@ class Sms implements Runnable {
         send.setPsw(PASSWORD);
         send.setPhones("+38" + info.getPhoneNumber());
         send.setMes("This is test message, please don't response");
-        send.setId("");
         send.setSender("SoftTechno");
         send.setTime("0");
         port.sendSms(send);
+    }
+
+    static String getLogin() {
+        return LOGIN;
+    }
+
+    static String getPassword() {
+        return PASSWORD;
+    }
+
+    ServiceSoap getPort() {
+        return port;
     }
 }
