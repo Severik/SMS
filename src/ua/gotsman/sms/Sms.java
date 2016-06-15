@@ -9,8 +9,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.logging.FileHandler;
 import java.util.logging.Logger;
+
 
 /**
  * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
@@ -33,8 +33,6 @@ class Sms implements Runnable {
             if (Files.exists(path)) {
                 try {
                     InputStream inputStream = new FileInputStream(String.valueOf(path));
-                    FileHandler handler = new FileHandler("D:\\log.txt");
-                    log.addHandler(handler);
                     info.loadFromXls(inputStream);
                     inputStream.close();
                     sendSms();

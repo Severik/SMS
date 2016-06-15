@@ -11,7 +11,7 @@ public class View extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Центр управления полетами");
+        primaryStage.setTitle("SMS sender");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
     }
