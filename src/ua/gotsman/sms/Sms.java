@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
 /**
@@ -17,7 +18,7 @@ import java.util.logging.Logger;
 class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
-    private static Logger log = Logger.getLogger(Sms.class.getName());
+    private final static Logger log = Logger.getLogger(Sms.class.getName());
     private Path path = Paths.get("D:\\1.xls");
     private Info info = new Info();
     private Service service = new Service();
@@ -32,6 +33,8 @@ class Sms implements Runnable {
             if (Files.exists(path)) {
                 try {
                     InputStream inputStream = new FileInputStream(String.valueOf(path));
+                    FileHandler handler = new FileHandler("D:\\log.txt");
+                    log.addHandler(handler);
                     info.loadFromXls(inputStream);
                     inputStream.close();
                     sendSms();
