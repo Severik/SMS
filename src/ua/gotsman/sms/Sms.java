@@ -42,6 +42,11 @@ class Sms implements Runnable {
                     log.info(e.toString());
                 }
             }
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         stopTime = 0;
     }
