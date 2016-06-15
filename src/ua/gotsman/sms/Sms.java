@@ -34,6 +34,7 @@ class Sms implements Runnable {
             if (Files.exists(path)) {
                 try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")){
                     for (Path entry : entries) {
+                        System.out.println(entry);
                         InputStream inputStream = new FileInputStream(String.valueOf(entry));
                         info.loadFromXls(inputStream);
                         inputStream.close();
