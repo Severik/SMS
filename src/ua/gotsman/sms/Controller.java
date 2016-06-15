@@ -1,10 +1,7 @@
 package ua.gotsman.sms;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import ua.smsc.sys.soap.Send;
 
 public class Controller {
@@ -20,6 +17,7 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField enterPhone;
     public TextArea enterSms;
+    public CheckBox verifyPhone;
     private Sms sms = new Sms();
 
 
