@@ -17,10 +17,15 @@ public class Controller {
     public TextField balanceField;
     public TextField smsCount;
     public Hyperlink siteLink;
+    public TextField enterPhone;
+    public TextArea enterSms;
+    private String phoneNumber;
+    private String message;
     private Sms sms = new Sms();
 
+
     @FXML
-    public void btnStart() {
+    public void btnStart() throws InterruptedException {
         Thread thread = new Thread(sms);
         thread.start();
     }
@@ -42,11 +47,13 @@ public class Controller {
 
     @FXML
     public void accept () {
-
+        phoneNumber = enterPhone.getText();
+        message = enterSms.getText();
     }
 
     @FXML
     public void cancel () {
-
+        enterPhone.clear();
+        enterSms.clear();
     }
 }

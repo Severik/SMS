@@ -11,12 +11,12 @@
         </Tab>
         <Tab style="-fx-font-size: 13" text="Отправка СМС">
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                <TextField layoutX="64.0" layoutY="48.0" prefHeight="29.0" prefWidth="176.0" promptText="Введите номер телефона" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+                <TextField fx:id="enterPhone" layoutX="64.0" layoutY="48.0" prefHeight="29.0" prefWidth="176.0" promptText="Введите номер телефона" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
                     <font>
                         <Font size="13.0" />
                     </font>
                 </TextField>
-                <TextArea layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0" promptText="Напишите сообщение здесь, максимум 70 символов" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+                <TextArea fx:id="enterSms" layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0" promptText="Напишите сообщение здесь, максимум 70 символов" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
                     <font>
                         <Font size="13.0" />
                     </font>
@@ -26,8 +26,7 @@
             </AnchorPane>
         </Tab>
         <Tab closable="false" style="-fx-font-size: 13;" text="О программе">
-            <TextArea blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0"
-                      text="&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;     © 2016 Gotsman Denis. All rights reserved."/>
+            <TextArea blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0" text="&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;     © 2016 Gotsman Denis. All rights reserved." />
         </Tab>
     </TabPane>
    <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" styleClass="button" stylesheets="@buttonStyle.css" text="Старт">

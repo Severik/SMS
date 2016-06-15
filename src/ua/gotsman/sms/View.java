@@ -14,6 +14,7 @@ public class View extends Application {
         primaryStage.setTitle("Центр управления полетами СМС");
         primaryStage.setScene(new Scene(root, 500, 500));
         primaryStage.show();
+
     }
 
     public static void main(String[] args) {
