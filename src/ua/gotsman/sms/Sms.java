@@ -20,7 +20,7 @@ class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
-    private Path path = Paths.get("D:\\");
+    private Path path = Paths.get("D:\\test");
     private Info info = new Info();
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
@@ -31,21 +31,20 @@ class Sms implements Runnable {
     public void run() {
         while (true) {
             if (stopTime == 1) break;
-            if (Files.exists(path)) {
-                try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")){
-                    for (Path entry : entries) {
-                        System.out.println(entry);
-                        InputStream inputStream = new FileInputStream(String.valueOf(entry));
-                        info.loadFromXls(inputStream);
-                        inputStream.close();
-                        sendSms();
-                        Files.delete(path);
-                        smsCount += 1;
-                    }
-                } catch (IOException | BiffException e) {
-                    log.info(e.toString());
+            try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")) {
+                for (Path entry : entries) {
+                    System.out.println(entry);
+                    InputStream inputStream = new FileInputStream(String.valueOf(entry));
+                    info.loadFromXls(inputStream);
+                    inputStream.close();
+                    sendSms();
+                    Files.delete(entry);
+                    smsCount += 1;
                 }
+            } catch (IOException | BiffException e) {
+                log.info(e.toString());
             }
+
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
