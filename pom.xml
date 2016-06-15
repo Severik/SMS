@@ -6,7 +6,8 @@
 
     <groupId>ua.gotsman</groupId>
     <artifactId>sms</artifactId>
-    <version>0.1 - alpha</version>
+    <version>0.9</version>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
