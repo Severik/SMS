@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ua.smsc.sys.soap.Send;
 
+import java.io.IOException;
+
 public class Controller {
 
     public Button start;
@@ -24,7 +26,7 @@ public class Controller {
 
 
     @FXML
-    public void btnStart() throws InterruptedException {
+    public void btnStart() throws InterruptedException, IOException {
         Thread thread = new Thread(sms);
         thread.start();
     }
@@ -35,13 +37,13 @@ public class Controller {
     }
 
     @FXML
-    public void showBalance() {
-        balanceField.setText("Р‘Р°Р»Р°РЅСЃ: " + sms.getUserBalance() + " РіСЂРЅ.");
+    private void showBalance() {
+        balanceField.setText("Баланс: " + sms.getUserBalance() + " грн.");
     }
 
     @FXML
-    public void smsCount() {
-        smsCount.setText("РЎРњРЎ РѕС‚РїСЂР°РІР»РµРЅРѕ: " + String.valueOf(sms.smsCount));
+    private void smsCount() {
+        smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount - 1));
     }
 
     @FXML
@@ -49,6 +51,7 @@ public class Controller {
         phoneNumber = enterPhone.getText();
         message = enterSms.getText();
         sendSms();
+        sms.smsCount += 1;
         smsCount();
         showBalance();
         enterPhone.clear();

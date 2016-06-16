@@ -34,9 +34,8 @@
             </AnchorPane>
         </Tab>
         <Tab closable="false" style="-fx-font-size: 13;" text="О программе">
-         <content>
             <TextArea blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0" text="&#9;&#9;&#9;&#9;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;  © 2016 Gotsman Denis. All rights reserved." />
-         </content></Tab>
+        </Tab>
     </TabPane>
    <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" styleClass="button" stylesheets="@buttonStyle.css" text="Старт">
       <font>
@@ -47,7 +46,7 @@
          <Font size="15.0" />
       </font></Button>
    <TextField fx:id="balanceField" editable="false" layoutX="216.0" layoutY="14.0" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
-   <Button fx:id="log" layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
+   <Button fx:id="log" accessibleRole="MENU_BUTTON" layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
       <font>
          <Font size="15.0" />
       </font>
