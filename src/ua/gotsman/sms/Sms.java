@@ -14,10 +14,6 @@ import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
-
-/**
- * Формирует СМС и отправляет его на шлюз smsc.ua через SOAP протокол
- */
 class Sms implements Runnable {
     private final static String LOGIN = "Severik";
     private final static String PASSWORD = "Derparol12!@";
