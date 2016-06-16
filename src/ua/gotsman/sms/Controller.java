@@ -18,6 +18,8 @@ public class Controller {
     public TextField enterPhone;
     public TextArea enterSms;
     public CheckBox verifyPhone;
+    private String phoneNumber;
+    private String message;
     private Sms sms = new Sms();
 
 
@@ -38,14 +40,28 @@ public class Controller {
     }
 
     @FXML
-    public void smsCount () {
+    public void smsCount() {
         smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount));
     }
 
     @FXML
-    public void accept () {
-        String phoneNumber = enterPhone.getText();
-        String message = enterSms.getText();
+    public void accept() {
+        phoneNumber = enterPhone.getText();
+        message = enterSms.getText();
+        sendSms();
+        smsCount();
+        showBalance();
+        enterPhone.clear();
+        enterSms.clear();
+    }
+
+    @FXML
+    public void cancel() {
+        enterPhone.clear();
+        enterSms.clear();
+    }
+
+    private void sendSms() {
         Send send = new Send();
         send.setLogin(Sms.getLogin());
         send.setPsw(Sms.getPassword());
@@ -54,13 +70,5 @@ public class Controller {
         send.setSender("SoftTechno");
         send.setTime("0");
         sms.getPort().sendSms(send);
-        enterPhone.clear();
-        enterSms.clear();
-    }
-
-    @FXML
-    public void cancel () {
-        enterPhone.clear();
-        enterSms.clear();
     }
 }
