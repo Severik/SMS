@@ -39,9 +39,12 @@ class Sms implements Runnable {
                     Files.delete(entry);
                     smsCount += 1;
                     writeHistory();
+                    Thread.sleep(1000);
                 }
             } catch (IOException | BiffException e) {
                 log.info(e.toString());
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
             try {
