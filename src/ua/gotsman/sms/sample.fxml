@@ -33,7 +33,10 @@
             <CheckBox fx:id="verifyPhone" layoutX="254.0" layoutY="54.0" mnemonicParsing="false" />
             </AnchorPane>
         </Tab>
-        <Tab closable="false" style="-fx-font-size: 13;" text="О программе" />
+        <Tab closable="false" style="-fx-font-size: 13;" text="О программе">
+         <content>
+            <TextArea blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0" text="&#9;&#9;&#9;&#9;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;  © 2016 Gotsman Denis. All rights reserved." />
+         </content></Tab>
     </TabPane>
    <Button fx:id="start" layoutX="29.0" layoutY="15.0" mnemonicParsing="false" onAction="#btnStart" prefHeight="60.0" prefWidth="60.0" styleClass="button" stylesheets="@buttonStyle.css" text="Старт">
       <font>
