@@ -1,5 +1,6 @@
 package ua.gotsman.sms;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import ua.smsc.sys.soap.Send;
@@ -19,21 +20,31 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField enterPhone;
     public TextArea enterSms;
-    public CheckBox verifyPhone;
     private String phoneNumber;
     private String message;
     private Sms sms = new Sms();
 
-
     @FXML
-    public void btnStart() throws InterruptedException, IOException {
+    void btnStart() throws InterruptedException, IOException {
+        Task task = new Task<TextArea>() {
+            @Override
+            protected TextArea call() throws Exception {
+                while (Sms.stopTime == 0) {
+                    mainTextArea.appendText("TEST");
+                    Thread.sleep(1000);
+                }
+                return mainTextArea;
+            }
+        };
         Thread thread = new Thread(sms);
+        Thread thread1 = new Thread(task);
         thread.start();
+        thread1.start();
     }
 
     @FXML
-    public void btnStop() {
-        sms.stopTime = 1;
+    void btnStop() {
+        Sms.stopTime = 1;
     }
 
     @FXML
@@ -43,15 +54,15 @@ public class Controller {
 
     @FXML
     private void smsCount() {
-        smsCount.setText("СМС отправлено: " + String.valueOf(sms.smsCount - 1));
+        smsCount.setText("СМС отправлено: " + String.valueOf(Sms.smsCount - 1));
     }
 
     @FXML
-    public void accept() {
+    void accept() {
         phoneNumber = enterPhone.getText();
         message = enterSms.getText();
         sendSms();
-        sms.smsCount += 1;
+        Sms.smsCount += 1;
         smsCount();
         showBalance();
         enterPhone.clear();
@@ -59,7 +70,7 @@ public class Controller {
     }
 
     @FXML
-    public void cancel() {
+    void cancel() {
         enterPhone.clear();
         enterSms.clear();
     }

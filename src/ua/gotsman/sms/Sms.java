@@ -22,13 +22,12 @@ class Sms implements Runnable {
     private Info info = new Info();
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
-    int stopTime = 0;
-    int smsCount = 1;
+    volatile static int stopTime = 0;
+    volatile static int smsCount = 1;
 
     @Override
     public void run() {
-        while (true) {
-            if (stopTime == 1) break;
+        while (stopTime == 0) {
             try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")) {
                 for (Path entry : entries) {
                     InputStream inputStream = new FileInputStream(String.valueOf(entry));

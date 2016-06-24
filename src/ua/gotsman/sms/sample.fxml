@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -30,7 +29,6 @@
                 </TextArea>
             <Button fx:id="accept" layoutX="127.0" layoutY="323.0" mnemonicParsing="false" onAction="#accept" prefHeight="31.0" prefWidth="90.0" stylesheets="@buttonStyle.css" text="Отправить" />
             <Button fx:id="cancel" layoutX="284.0" layoutY="323.0" mnemonicParsing="false" onAction="#cancel" prefHeight="31.0" prefWidth="90.0" stylesheets="@buttonStyle.css" text="Отмена" />
-            <CheckBox fx:id="verifyPhone" layoutX="254.0" layoutY="54.0" mnemonicParsing="false" />
             </AnchorPane>
         </Tab>
         <Tab closable="false" style="-fx-font-size: 13;" text="О программе">
@@ -45,7 +43,7 @@
       <font>
          <Font size="15.0" />
       </font></Button>
-   <TextField fx:id="balanceField" editable="false" layoutX="216.0" layoutY="14.0" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
+   <TextField fx:id="balanceField" editable="false" layoutX="216.0" layoutY="14.0" onAction="#showBalance" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
    <Button fx:id="log" accessibleRole="MENU_BUTTON" layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
       <font>
          <Font size="15.0" />
@@ -55,5 +53,5 @@
       <font>
          <Font name="Andalus" size="15.0" />
       </font></Hyperlink>
-   <TextField fx:id="smsCount" editable="false" layoutX="216.0" layoutY="49.0" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
+   <TextField fx:id="smsCount" editable="false" layoutX="216.0" layoutY="49.0" onAction="#smsCount" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
 </Pane>
