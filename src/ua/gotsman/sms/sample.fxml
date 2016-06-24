@@ -22,7 +22,7 @@
                         <Font size="13.0" />
                     </font>
                 </TextField>
-                <TextArea fx:id="enterSms" layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0" promptText="Напишите сообщение, максимум 70 символов." style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
+                <TextArea fx:id="enterSms" layoutX="64.0" layoutY="108.0" prefHeight="200.0" prefWidth="379.0" promptText="Напишите здесь ваше сообщение." style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );">
                     <font>
                         <Font size="13.0" />
                     </font>

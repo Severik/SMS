@@ -34,7 +34,6 @@ class Sms implements Runnable {
                     info.loadFromXls(inputStream);
                     inputStream.close();
                     sendSms();
-                    smsStatus();
                     Files.delete(entry);
                     smsCount += 1;
                     writeHistory();
@@ -95,7 +94,7 @@ class Sms implements Runnable {
         writer.close();
     }
 
-    private void smsStatus() {
+    private String smsStatus() {
         Status status = new Status();
         status.setLogin(LOGIN);
         status.setPsw(PASSWORD);
@@ -136,5 +135,6 @@ class Sms implements Runnable {
                 System.out.println("Недоступный номер");
                 break;
         }
+        return text;
     }
 }
