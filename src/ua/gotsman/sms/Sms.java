@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 class Sms implements Runnable {
-    private final static String LOGIN = "Severik";
-    private final static String PASSWORD = "Derparol12!@";
+    private final static String LOGIN = "";
+    private final static String PASSWORD = "";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
     private Path path = Paths.get("D:\\test");
     private Info info = new Info();
@@ -33,7 +33,7 @@ class Sms implements Runnable {
                     InputStream inputStream = new FileInputStream(String.valueOf(entry));
                     info.loadFromXls(inputStream);
                     inputStream.close();
-                    sendSms();
+                    //sendSms();
                     Files.delete(entry);
                     smsCount += 1;
                     writeHistory();
@@ -80,7 +80,7 @@ class Sms implements Runnable {
         send.setPsw(PASSWORD);
         send.setId(String.valueOf(smsCount));
         send.setPhones("+38" + info.getPhoneNumber());
-        send.setMes("This is test message, please don't response");
+        send.setMes("Vashe oborudovanie gotovo, k oplate " + info.getTotal() + " UAH. Spravki po telefonam (066)5367875, 5-88-80. Info na http://soft-techno.tk/");
         send.setSender("SoftTechno");
         send.setTime("0");
         port.sendSms(send);
@@ -90,6 +90,7 @@ class Sms implements Runnable {
         FileWriter writer = new FileWriter("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt", true);
         LocalDateTime time = LocalDateTime.now();
         writer.write(time + " " + info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + " " + info.getProposal() + "\n");
+        writer.write(smsStatus());
         writer.write("-----------------------------------------------------------------" + "\n");
         writer.close();
     }
@@ -105,34 +106,34 @@ class Sms implements Runnable {
         String text = response.getStatusresult().getStatus();
         switch (text) {
             case "-3":
-                System.out.println("Сообщение не найдено");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РЅРµ РЅР°Р№РґРµРЅРѕ");
                 break;
             case "-1":
-                System.out.println("Сообщение ожидает отправки");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РѕР¶РёРґР°РµС‚ РѕС‚РїСЂР°РІРєРё");
                 break;
             case "0":
-                System.out.println("Сообщение передано оператору");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РїРµСЂРµРґР°РЅРѕ РѕРїРµСЂР°С‚РѕСЂСѓ");
                 break;
             case "1":
-                System.out.println("Сообщение доставлено");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РґРѕСЃС‚Р°РІР»РµРЅРѕ");
                 break;
             case "3":
-                System.out.println("Сообщение просрочено");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РїСЂРѕСЃСЂРѕС‡РµРЅРѕ");
                 break;
             case "20":
-                System.out.println("Сообщение невозможно доставить");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ РґРѕСЃС‚Р°РІРёС‚СЊ");
                 break;
             case "22":
-                System.out.println("Неверный номер");
+                System.out.println("РќРµРІРµСЂРЅС‹Р№ РЅРѕРјРµСЂ");
                 break;
             case "23":
-                System.out.println("Сообщение запрещено");
+                System.out.println("РЎРѕРѕР±С‰РµРЅРёРµ Р·Р°РїСЂРµС‰РµРЅРѕ");
                 break;
             case "24":
-                System.out.println("Недостаточно средств на счету");
+                System.out.println("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ СЃСЂРµРґСЃС‚РІ РЅР° СЃС‡РµС‚Сѓ");
                 break;
             case "25":
-                System.out.println("Недоступный номер");
+                System.out.println("РќРµРґРѕСЃС‚СѓРїРЅС‹Р№ РЅРѕРјРµСЂ");
                 break;
         }
         return text;

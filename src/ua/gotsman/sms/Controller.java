@@ -49,12 +49,12 @@ public class Controller {
 
     @FXML
     private void showBalance() {
-        balanceField.setText("Баланс: " + sms.getUserBalance() + " грн.");
+        balanceField.setText("Р‘Р°Р»Р°РЅСЃ: " + sms.getUserBalance() + " РіСЂРЅ.");
     }
 
     @FXML
     private void smsCount() {
-        smsCount.setText("СМС отправлено: " + String.valueOf(Sms.smsCount - 1));
+        smsCount.setText("РЎРњРЎ РѕС‚РїСЂР°РІР»РµРЅРѕ: " + String.valueOf(Sms.smsCount - 1));
     }
 
     @FXML

@@ -8,6 +8,8 @@ import jxl.read.biff.BiffException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Информация о клиенте и услуге, исходя из сформированного коммерческого предложения 1С.
@@ -20,7 +22,7 @@ class Info {
     private String proposal;               //Коммерческое предложение номер и дата
     private ArrayList<String> service;     //Список с наименованиями услуг
     private ArrayList<Double> amount;      //Список с количеством услуг
-    private ArrayList<Double> price;       //Список с общими ценами за услуги
+    private ArrayList<Double> price;       //Список с ценами за услуги
     private double total;                  //Общая сумма
 
     String getFirstName() {
@@ -46,7 +48,15 @@ class Info {
     }
 
     private void setPhoneNumber(Cell cell) {
-        phoneNumber = cell.getContents().substring(5, 15);
+        String temp = cell.getContents();
+        Pattern pattern = Pattern.compile("\\d+");
+        Matcher matcher = pattern.matcher(temp);
+        int start = 0;
+        while (matcher.find(start)) {
+            String temp1 = temp.substring(matcher.start(), matcher.end());
+            System.out.println(temp1);
+            start = matcher.end();
+        }
     }
 
     String getProposal() {
