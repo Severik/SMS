@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 class Sms implements Runnable {
-    private final static String LOGIN = "Severik";
-    private final static String PASSWORD = "Derparol12!@";
+    private final static String LOGIN = "";
+    private final static String PASSWORD = "";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
     private Path path = Paths.get("D:\\test");
     private Info info = new Info();
