@@ -26,18 +26,24 @@ public class Controller {
 
     @FXML
     void btnStart() throws InterruptedException, IOException {
-        Task task = new Task<TextArea>() {
+        Task showStatus = new Task<TextArea>() {
             @Override
             protected TextArea call() throws Exception {
+                int count = 1;
                 while (Sms.stopTime == 0) {
-                    mainTextArea.appendText("TEST");
-                    Thread.sleep(1000);
+                    if (count < Sms.smsCount) {
+                        mainTextArea.appendText(sms.showMainInfo());
+                        showBalance();
+                        smsCount();
+                        count++;
+                        Thread.sleep(1000);
+                    }
                 }
                 return mainTextArea;
             }
         };
         Thread thread = new Thread(sms);
-        Thread thread1 = new Thread(task);
+        Thread thread1 = new Thread(showStatus);
         thread.start();
         thread1.start();
     }
@@ -62,7 +68,7 @@ public class Controller {
         phoneNumber = enterPhone.getText();
         message = enterSms.getText();
         sendSms();
-        Sms.smsCount += 1;
+        Sms.smsCount++;
         smsCount();
         showBalance();
         enterPhone.clear();

@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 import java.util.logging.Logger;
 
 class Sms implements Runnable {
-    private final static String LOGIN = "";
-    private final static String PASSWORD = "";
+    private final static String LOGIN = "Severik";
+    private final static String PASSWORD = "Derparol12!@";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
     private Path path = Paths.get("D:\\test");
     private Info info = new Info();
@@ -33,9 +33,9 @@ class Sms implements Runnable {
                     InputStream inputStream = new FileInputStream(String.valueOf(entry));
                     info.loadFromXls(inputStream);
                     inputStream.close();
-                    //sendSms();
+                    sendSms();
                     Files.delete(entry);
-                    smsCount += 1;
+                    smsCount++;
                     writeHistory();
                     Thread.sleep(1000);
                 }
@@ -89,10 +89,19 @@ class Sms implements Runnable {
     private void writeHistory() throws IOException {
         FileWriter writer = new FileWriter("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt", true);
         LocalDateTime time = LocalDateTime.now();
-        writer.write(time + " " + info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + " " + info.getProposal() + "\n");
-        writer.write(smsStatus());
-        writer.write("-----------------------------------------------------------------" + "\n");
+        writer.write(time.getYear() + "-" + time.getMonth() + "-" + time.getDayOfMonth() + " " + time.getHour() + ":" + time.getMinute() + " " + smsStatus() + "\n");
+        writer.write(info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + " " + info.getProposal() + "\n");
+        writer.write("-------------------------------------------------------" + "\n");
         writer.close();
+    }
+
+    String showMainInfo() {
+        LocalDateTime time = LocalDateTime.now();
+        return String.valueOf(time.getYear()) + "-" + time.getMonth() + "-" + time.getDayOfMonth() + " " +
+                time.getHour() + ":" + time.getMinute() + "\n" + smsStatus() + "\n" +
+                info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + "\n" +
+                info.getProposal() + "\n" +
+                "\n";
     }
 
     private String smsStatus() {
@@ -104,38 +113,39 @@ class Sms implements Runnable {
         status.setAll("1");
         StatusResponse response = port.getStatus(status);
         String text = response.getStatusresult().getStatus();
+        String result = "";
         switch (text) {
             case "-3":
-                System.out.println("Сообщение не найдено");
+                result = "Сообщение не найдено";
                 break;
             case "-1":
-                System.out.println("Сообщение ожидает отправки");
+                result = "Сообщение ожидает отправки";
                 break;
             case "0":
-                System.out.println("Сообщение передано оператору");
+                result = "Сообщение передано оператору";
                 break;
             case "1":
-                System.out.println("Сообщение доставлено");
+                result = "Сообщение доставлено";
                 break;
             case "3":
-                System.out.println("Сообщение просрочено");
+                result = "Сообщение просрочено";
                 break;
             case "20":
-                System.out.println("Сообщение невозможно доставить");
+                result = "Сообщение невозможно доставить";
                 break;
             case "22":
-                System.out.println("Неверный номер");
+                result = "Неверный номер";
                 break;
             case "23":
-                System.out.println("Сообщение запрещено");
+                result = "Сообщение запрещено";
                 break;
             case "24":
-                System.out.println("Недостаточно средств на счету");
+                result = "Недостаточно средств на счету";
                 break;
             case "25":
-                System.out.println("Недоступный номер");
+                result = "Недоступный номер";
                 break;
         }
-        return text;
+        return result;
     }
 }

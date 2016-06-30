@@ -51,11 +51,18 @@ class Info {
         String temp = cell.getContents();
         Pattern pattern = Pattern.compile("\\d+");
         Matcher matcher = pattern.matcher(temp);
+        StringBuilder sb = new StringBuilder();
         int start = 0;
         while (matcher.find(start)) {
-            String temp1 = temp.substring(matcher.start(), matcher.end());
-            System.out.println(temp1);
+            sb.append(temp.substring(matcher.start(), matcher.end()));
             start = matcher.end();
+        }
+        if (sb.toString().startsWith("0")) {
+            phoneNumber = sb.toString().substring(0, 10);
+        } else if (sb.toString().startsWith("8")) {
+            phoneNumber = sb.toString().substring(1, 11);
+        } else {
+            phoneNumber = sb.toString().substring(5, 15);
         }
     }
 
