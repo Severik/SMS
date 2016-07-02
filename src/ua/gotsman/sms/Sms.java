@@ -90,7 +90,7 @@ class Sms implements Runnable {
         FileWriter writer = new FileWriter("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt", true);
         LocalDateTime time = LocalDateTime.now();
         writer.write(time.getYear() + "-" + time.getMonth() + "-" + time.getDayOfMonth() + " " + time.getHour() + ":" + time.getMinute() + " " + smsStatus() + "\n");
-        writer.write(info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + " " + info.getProposal() + "\n");
+        writer.write(info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + "\n" + info.getProposal() + "\n");
         writer.write("-------------------------------------------------------" + "\n");
         writer.close();
     }

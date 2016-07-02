@@ -36,7 +36,7 @@
         </Tab>
         <Tab closable="false" style="-fx-font-size: 13;" text="О программе">
          <content>
-            <TextArea blendMode="MULTIPLY" prefHeight="200.0" prefWidth="200.0" text="&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;   © 2016 Gotsman Denis. All rights reserved." />
+            <TextArea blendMode="MULTIPLY" editable="false" prefHeight="200.0" prefWidth="200.0" text="&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#10;&#9;&#9;&#9;&#9;   © 2016 Gotsman Denis. All rights reserved." />
          </content>
         </Tab>
     </TabPane>
@@ -49,12 +49,12 @@
          <Font size="15.0" />
       </font></Button>
    <TextField fx:id="balanceField" editable="false" layoutX="216.0" layoutY="14.0" onAction="#showBalance" prefHeight="25.0" prefWidth="135.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" />
-   <Button fx:id="log" accessibleRole="MENU_BUTTON" layoutX="396.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
+   <Button fx:id="log" accessibleRole="MENU_BUTTON" layoutX="396.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnLog" prefHeight="31.0" prefWidth="74.0" stylesheets="@buttonStyle.css" text="Лог">
       <font>
          <Font size="15.0" />
       </font>
        </Button>
-   <Hyperlink fx:id="siteLink" alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="4.0" prefHeight="39.0" prefWidth="74.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Сайт" textFill="#5919e5">
+   <Hyperlink fx:id="siteLink" alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="4.0" onAction="#btnHyperLink" prefHeight="39.0" prefWidth="74.0" style="-fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );" text="Сайт" textFill="#5919e5">
       <font>
          <Font name="Andalus" size="15.0" />
       </font></Hyperlink>

@@ -3,9 +3,16 @@ package ua.gotsman.sms;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import ua.smsc.sys.soap.Send;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class Controller {
 
@@ -51,6 +58,16 @@ public class Controller {
     @FXML
     void btnStop() {
         Sms.stopTime = 1;
+    }
+
+    @FXML
+    void btnHyperLink() throws URISyntaxException, IOException {
+        Desktop.getDesktop().browse(new URI("http://soft-techno.tk"));
+    }
+
+    @FXML
+    void btnLog() throws IOException {
+        Desktop.getDesktop().open(new File("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt"));
     }
 
     @FXML
