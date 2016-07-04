@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
 import ua.smsc.sys.soap.Send;
 
 import java.awt.*;
@@ -27,12 +28,14 @@ public class Controller {
     public Hyperlink siteLink;
     public TextField enterPhone;
     public TextArea enterSms;
+    public CheckBox checkBox;
     private String phoneNumber;
     private String message;
     private Sms sms = new Sms();
 
     @FXML
     void btnStart() throws InterruptedException, IOException {
+        checkBox.setSelected(true);
         Task showStatus = new Task<TextArea>() {
             @Override
             protected TextArea call() throws Exception {
@@ -43,8 +46,8 @@ public class Controller {
                         showBalance();
                         smsCount();
                         count++;
-                        Thread.sleep(1000);
                     }
+                    Thread.sleep(1000);
                 }
                 return mainTextArea;
             }
@@ -58,6 +61,7 @@ public class Controller {
     @FXML
     void btnStop() {
         Sms.stopTime = 1;
+        checkBox.setSelected(false);
     }
 
     @FXML

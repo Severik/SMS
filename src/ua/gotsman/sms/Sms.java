@@ -12,6 +12,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 class Sms implements Runnable {
@@ -27,6 +29,13 @@ class Sms implements Runnable {
 
     @Override
     public void run() {
+        try {
+            FileHandler handler = new FileHandler("D:\\Projects\\SMS\\out\\artifacts\\sms\\report.txt", 0, 1, true);
+            log.addHandler(handler);
+            log.setLevel(Level.ALL);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         while (stopTime == 0) {
             try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")) {
                 for (Path entry : entries) {
