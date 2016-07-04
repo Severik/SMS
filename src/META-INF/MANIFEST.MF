@@ -1,4 +1,3 @@
 Manifest-Version: 1.0
-Created-By: Gotsman Denis
 Main-Class: ua.gotsman.sms.View
-
+Created-By: Gotsman Denis
