@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="sms">
+  <artifact type="jar" build-on-make="true" name="sms">
     <output-path>$PROJECT_DIR$/out/artifacts/sms</output-path>
     <root id="archive" name="sms.jar">
       <element id="module-output" name="sms" />

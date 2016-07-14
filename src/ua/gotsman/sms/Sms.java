@@ -19,8 +19,8 @@ class Sms implements Runnable {
     private final static String LOGIN = "";
     private final static String PASSWORD = "";
     private final static Logger log = Logger.getLogger(Sms.class.getName());
-    private Path path = Paths.get("D:\\test");
-    private Info info = new Info();
+    private Path path = Paths.get("Z:\\");
+    private Info info;
     private Service service = new Service();
     private ServiceSoap port = service.getServiceSoap();
     volatile static int stopTime = 0;
@@ -29,7 +29,7 @@ class Sms implements Runnable {
     @Override
     public void run() {
         try {
-            FileHandler handler = new FileHandler("D:\\Projects\\SMS\\out\\artifacts\\sms\\report.txt", 0, 1, true);
+            FileHandler handler = new FileHandler("D:\\SMS\\report.txt", 0, 1, true);
             log.addHandler(handler);
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,6 +38,7 @@ class Sms implements Runnable {
             try (DirectoryStream<Path> entries = Files.newDirectoryStream(path, "*xls")) {
                 for (Path entry : entries) {
                     InputStream inputStream = new FileInputStream(String.valueOf(entry));
+                    info = new Info();
                     info.loadFromXls(inputStream);
                     inputStream.close();
                     sendSms();
@@ -87,14 +88,14 @@ class Sms implements Runnable {
         send.setPsw(PASSWORD);
         send.setId(String.valueOf(smsCount));
         send.setPhones("+38" + info.getPhoneNumber());
-        send.setMes("Vashe oborudovanie gotovo, k oplate " + info.getTotal() + " UAH. Spravki po telefonam (066)5367875, 5-88-80. Info na http://soft-techno.tk/");
+        send.setMes("Vashe oborudovanie gotovo, k oplate " + info.getTotal() + " UAH. Spravki po telefonam (050)3224773, 5-88-80. Info na http://soft-techno.tk/");
         send.setSender("SoftTechno");
         send.setTime("0");
         port.sendSms(send);
     }
 
     private void writeHistory() throws IOException {
-        FileWriter writer = new FileWriter("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt", true);
+        FileWriter writer = new FileWriter("D:\\SMS\\history.txt", true);
         LocalDateTime time = LocalDateTime.now();
         writer.write(time.getYear() + "-" + time.getMonth() + "-" + time.getDayOfMonth() + " " + time.getHour() + ":" + time.getMinute() + " " + smsStatus() + "\n");
         writer.write(info.getLastName() + " " + info.getFirstName() + " " + info.getPhoneNumber() + "\n" + info.getProposal() + "\n");
@@ -115,7 +116,7 @@ class Sms implements Runnable {
         Status status = new Status();
         status.setLogin(LOGIN);
         status.setPsw(PASSWORD);
-        status.setId(String.valueOf(smsCount));
+        status.setId(String.valueOf(smsCount - 1));
         status.setPhone("+38" + info.getPhoneNumber());
         status.setAll("1");
         StatusResponse response = port.getStatus(status);

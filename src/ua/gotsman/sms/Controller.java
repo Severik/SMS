@@ -70,7 +70,7 @@ public class Controller {
 
     @FXML
     void btnLog() throws IOException {
-        Desktop.getDesktop().open(new File("D:\\Projects\\SMS\\out\\artifacts\\sms\\history.txt"));
+        Desktop.getDesktop().open(new File("D:\\SMS\\history.txt"));
     }
 
     @FXML
@@ -88,7 +88,6 @@ public class Controller {
         phoneNumber = enterPhone.getText();
         message = enterSms.getText();
         sendSms();
-        Sms.smsCount++;
         smsCount();
         showBalance();
         enterPhone.clear();

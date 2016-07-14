@@ -62,7 +62,11 @@ class Info {
         } else if (sb.toString().startsWith("8")) {
             phoneNumber = sb.toString().substring(1, 11);
         } else {
-            phoneNumber = sb.toString().substring(5, 15);
+            if (sb.toString().charAt(5) == '8') {
+                phoneNumber = sb.toString().substring(6, 16);
+            } else {
+                phoneNumber = sb.toString().substring(5, 15);
+            }
         }
     }
 
