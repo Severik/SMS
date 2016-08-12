@@ -88,7 +88,8 @@ class Sms implements Runnable {
         send.setPsw(PASSWORD);
         send.setId(String.valueOf(smsCount));
         send.setPhones("+38" + info.getPhoneNumber());
-        send.setMes("Vashe oborudovanie gotovo, k oplate " + info.getTotal() + " UAH. Spravki po telefonam (050)3224773, 5-88-80. Info na http://soft-techno.tk/");
+        send.setMes("Vashe oborudovanie gotovo, k oplate " + info.getTotal() + " UAH. Spravki po telefonam "
+                + info.getResponsiblePhoneNumber() + ", 5-88-80. " + info.getResponsible());
         send.setSender("SoftTechno");
         send.setTime("0");
         port.sendSms(send);

@@ -19,6 +19,8 @@ class Info {
     private String firstName;              //Имя клиента
     private String lastName;               //Фамилия клиента
     private String phoneNumber;            //Телефонный номер
+    private String responsible;            //ФИО мастера
+    private String responsiblePhoneNumber; //Номер телефона мастера
     private String proposal;               //Коммерческое предложение номер и дата
     private ArrayList<String> service;     //Список с наименованиями услуг
     private ArrayList<Double> amount;      //Список с количеством услуг
@@ -31,7 +33,7 @@ class Info {
 
     private void setFirstName(Cell cell) {
         String[] temp = cell.getContents().split(" ");
-        firstName = temp[1];
+        this.firstName = temp[1];
     }
 
     String getLastName() {
@@ -40,7 +42,7 @@ class Info {
 
     private void setLastName(Cell cell) {
         String[] temp = cell.getContents().split(" ");
-        lastName = temp[0];
+        this.lastName = temp[0];
     }
 
     String getPhoneNumber() {
@@ -58,14 +60,14 @@ class Info {
             start = matcher.end();
         }
         if (sb.toString().startsWith("0")) {
-            phoneNumber = sb.toString().substring(0, 10);
+            this.phoneNumber = sb.toString().substring(0, 10);
         } else if (sb.toString().startsWith("8")) {
-            phoneNumber = sb.toString().substring(1, 11);
+            this.phoneNumber = sb.toString().substring(1, 11);
         } else {
             if (sb.toString().charAt(5) == '8') {
-                phoneNumber = sb.toString().substring(6, 16);
+                this.phoneNumber = sb.toString().substring(6, 16);
             } else {
-                phoneNumber = sb.toString().substring(5, 15);
+                this.phoneNumber = sb.toString().substring(5, 15);
             }
         }
     }
@@ -75,7 +77,7 @@ class Info {
     }
 
     private void setProposal(Cell cell) {
-        proposal = cell.getContents().trim();
+        this.proposal = cell.getContents().trim();
     }
 
     ArrayList<String> getService() {
@@ -112,13 +114,31 @@ class Info {
         return total;
     }
 
+    String getResponsible() {
+        return responsible;
+    }
+
+    private void setResponsible(Cell cell) {
+        String[] temp = cell.getContents().split(" ");
+        this.responsible = temp[1] + " " + temp[2];
+    }
+
+    String getResponsiblePhoneNumber() {
+        return responsiblePhoneNumber;
+    }
+
+    private void setResponsiblePhoneNumber(Cell cell) {
+        String[] temp = cell.getContents().split(" ");
+        this.responsiblePhoneNumber = temp[temp.length - 1];
+    }
+
     void loadFromXls(InputStream inputStream) throws IOException, BiffException {
         Workbook workbook = Workbook.getWorkbook(inputStream);
         Sheet sheet = workbook.getSheet(0);
         setFirstName(sheet.getCell(2, 1));
         setLastName(sheet.getCell(2, 1));
         setPhoneNumber(sheet.getCell(2, 2));
-        setProposal(sheet.getCell(1, 4));
+        setProposal(sheet.getCell(1, 6));
         service = new ArrayList<>();
         amount = new ArrayList<>();
         price = new ArrayList<>();
@@ -130,5 +150,8 @@ class Info {
                 setPrice(price, sheet.getCell(8, c.getRow()));
             }
         }
+        int lastRow = sheet.getRows() - 1;
+        setResponsible(sheet.getCell(3, lastRow));
+        setResponsiblePhoneNumber(sheet.getCell(3, lastRow));
     }
 }

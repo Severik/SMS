@@ -41,6 +41,7 @@ public class Controller {
                 int count = 1;
                 while (Sms.stopTime == 0) {
                     if (count < Sms.smsCount) {
+                        Thread.sleep(1000);
                         mainTextArea.appendText(sms.showMainInfo());
                         showBalance();
                         smsCount();
