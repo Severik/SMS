@@ -66,7 +66,7 @@ public class Controller {
 
     @FXML
     void btnHyperLink() throws URISyntaxException, IOException {
-        Desktop.getDesktop().browse(new URI("http://soft-techno.tk"));
+        Desktop.getDesktop().browse(new URI("http://sts.zp.ua"));
     }
 
     @FXML
